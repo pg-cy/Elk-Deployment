@@ -1,5 +1,5 @@
-# Project11111111111
+# ELk Project
 
 this is a test!
  
-![test image](images/Peter_gentile_Homework_12.jpg)
+![test image](Images/Peter_gentile_Homework_12.jpg)
