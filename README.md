@@ -2,4 +2,4 @@
 
 this is a test!
  
-![test image](Images/Peter_gentile_Homework_12.jpg)
+![test image](images/Peter_gentile_Homework_12.jpg)
