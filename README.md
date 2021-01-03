@@ -1,5 +1,6 @@
-## Automated ELK Stack Deployment
+# Automated ELK Stack Deployment
 
+<<<<<<< HEAD
 The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
@@ -19,9 +20,12 @@ This document contains the following details:
 
 ### Description of the Topology
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
+The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures redundancy, in addition to restricting access to the network.
+-Load balancers route requests from external hosts to ensure webservers do not crash from being overloaded. 
+-A jump-box is another layer of security. Users can gain access to a network only by SSH to a jump-box computer that has a public facing address, from there one can move throughout the network.   
+
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
@@ -94,3 +98,8 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+=======
+this is a test!
+ 
+![test image](images/Peter_gentile_Homework_12.jpg)
+>>>>>>> 623af73961c880bfce855ab58a463673338ded55
