@@ -79,18 +79,23 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-A)web1 and web2 machines are being monitored.
+
+- A)web1 and web2 machines are being monitored.
 
 We have installed the following Beats on these machines:
-A) filebeat was installed on web1 and web2 machines
+- A) Filebeat was installed on web1 and web2 machines
 
 These Beats allow us to collect the following information from each machine:
-- A)filebeat collects data from the syslog and auth logs. 
+- A) Filebeat collects data from the syslog and auth logs. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
+- Copy the "install-elk.yml" file onto your ansible container.
+- Edit the "hosts" file to include our elk server
+![hosts edit file](images/hosts_edit)
+
 - Copy the _____ file to _____.
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
@@ -101,7 +106,7 @@ A)
 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 
-- A)you need to update the "hosts" file and add your webservers/elk ip address. This allows ansilbe to run playbooks on specific machines such as installing dvwa, or elk on the IP addresses from the hosts file. In the installation of filebeat,  you will have to modify the "filebeat-config.yml" file to point it to our elk server. During the installation process this file will be copied and renamed filebeat.yml to the machines we want to monitor.
+- A)you need to update the "hosts" file and add your webservers/elk ip addresses. This allows ansilbe to run playbooks on specific machines such as installing dvwa, or elk on the specified IP addresses from the hosts file. In the installation of filebeat,  you will have to modify the "filebeat-config.yml" file to point it to our elk server. During the installation process this file will be copied and renamed filebeat.yml to the machines we want to monitor.
 
 Which URL do you navigate to in order to check that the ELK server is running?
 
