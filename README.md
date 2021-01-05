@@ -1,6 +1,5 @@
 # Automated ELK Stack Deployment
 
-<<<<<<< HEAD
 The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
@@ -23,46 +22,50 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
 Load balancing ensures redundancy, in addition to restricting access to the network.
--Load balancers route requests from external hosts to ensure webservers do not crash from being overloaded. 
--A jump-box is another layer of security. Users can gain access to a network only by SSH to a jump-box computer that has a public facing address, from there one can move throughout the network.   
+-Load balancers route requests from external hosts to webservers ensuring they are not being overloaded (which can cause them to crash or be inaccessable). 
 
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+-A jump-box is another layer of security. Users can gain access to a network only by SSH to a jump-box machine that has a public facing address, from there one can move throughout the network.   
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the applications and system logs
+A)filebeat watches for changes to syslog and Authentication log
+
+
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name     | Function  | IP Address | Operating System |
+|----------|-----------|------------|------------------|
+| Jump Box | Gateway   |  10.0.0.4  | Linux            |
+| web1     |   dvwa    |  10.0.0.5  | Linux            |
+| web2     |   dvwa    |  10.0.0.6  | Linux            |
+| elk      |moniter VMs|  10.1.0.5  | Linux            |
+|	   |(web1&web2)|  	    |		       |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the jump-box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+A)Any ip address that has access to the private ssh key will be allowed to ssh into jumpbox.
+Machines within the network can only be accessed by the Jump-box ansible container through ssh.
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+-The ELK VM (10.1.0.5) can only be accessed by the Jump-box (10.0.0.5) ansible container which contains the ssh private key.
+
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name     | Publicly Accessible | Allowed IP Addresses                 |
+|----------|---------------------|--------------------------------------|
+| Jump Box | Yes                 | External host containing ssh-key)    |
+|Web1 &web2| no                  |  jumpbox(10.0.0.4)                   |
+|   elk    | no                  |  jumpbox(10.0.0.4)                   |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
+
+-
 - _TODO: What is the main advantage of automating configuration with Ansible?_
 
 The playbook implements the following tasks:
@@ -76,10 +79,10 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+A)web1 and web2 machines are being monitored.
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+A) filebeat was installed on web1 and web2 machines
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
@@ -94,8 +97,10 @@ SSH into the control node and follow the steps below:
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
+A)
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - _Which URL do you navigate to in order to check that the ELK server is running?
+A)52.151.193.28:5601 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 =======
