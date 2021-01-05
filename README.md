@@ -94,7 +94,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the "install-elk.yml" file onto your ansible container.
 - Edit the "hosts" file to include our elk server
-![hosts edit file](images/hosts_edit)
+![hosts edit file](images/hosts_edit.png)
 
 - Copy the _____ file to _____.
 - Update the _____ file to include...
