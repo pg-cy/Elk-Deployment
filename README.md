@@ -92,9 +92,11 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the "install-elk.yml" file onto your ansible container.
+- Copy/download the "install-elk.yml", "filebeat-config.yml","filebeat-playbook" file onto your ansible container.
 - Edit the "hosts" file to include our elk server
 ![hosts edit file](images/hosts_edit.png)
+- edit the "filebeat-config.yml" file to send the data to our ELK server.
+![filebeat config edit](images/IP_change_filebeat_configP1.png)(images/IP_change_filebeat_configP2.png)
 
 - Copy the _____ file to _____.
 - Update the _____ file to include...
