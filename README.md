@@ -50,7 +50,7 @@ Only the jump-box machine can accept connections from the Internet. Access to th
 A)Any ip address that has access to the private ssh key will be allowed to ssh into jumpbox.
 Machines within the network can only be accessed by the Jump-box ansible container through ssh.
 
--The ELK VM (10.1.0.5) can only be accessed by the Jump-box (10.0.0.5) ansible container which contains the ssh private key.
+-The ELK VM (10.1.0.5) can only be accessed by the Jump-box ansible container(10.0.0.5) which contains the ssh private key.
 
 
 A summary of the access policies in place can be found in the table below.
@@ -65,17 +65,17 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 
--
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- a)The main advantage of automating this process is to quickly reconfigure a machine. If multiple VMs was newly created or a previous VM had to be destroyed, we can simply run the playbook to reconfigure out machines. This saves us time rather than manually accessing each machine to install/configuring.
 
-The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+The ELK playbook implements the following tasks:
+- Increases virtual memory for our ELK server to use.
+- Installs docker
+- Installs python3 and installs the module docker for python
+- Downloads the elk image and installs it on a docker container with specific ports for elk to use.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![elk display status](images/elk_docker_display.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -85,7 +85,7 @@ We have installed the following Beats on these machines:
 A) filebeat was installed on web1 and web2 machines
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- A)filebeat collects data from the syslog and auth logs. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -98,14 +98,17 @@ SSH into the control node and follow the steps below:
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
 A)
+
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
 
-- _52.151.193.28:5601 
+- A)you need to update the "hosts" file and add your webservers/elk ip address. This allows ansilbe to run playbooks on specific machines such as installing dvwa, or elk on the IP addresses from the hosts file. In the installation of filebeat,  you will have to modify the "filebeat-config.yml" file to point it to our elk server. During the installation process this file will be copied and renamed filebeat.yml to the machines we want to monitor.
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-=======
-this is a test!
+Which URL do you navigate to in order to check that the ELK server is running?
+
+- A)you navigate to 52.151.193.28:5601 in a browser to access kibana
+
+
+
  
 ![test image](images/Peter_gentile_Homework_12.jpg)
 >>>>>>> 623af73961c880bfce855ab58a463673338ded55
