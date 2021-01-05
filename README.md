@@ -40,7 +40,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | web1     |   dvwa    |  10.0.0.5  | Linux            |
 | web2     |   dvwa    |  10.0.0.6  | Linux            |
 | elk      |moniter VMs|  10.1.0.5  | Linux            |
-|	   |(web1&web2)|  	    |		       |
+
 
 ### Access Policies
 
@@ -57,7 +57,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses                 |
 |----------|---------------------|--------------------------------------|
-| Jump Box | Yes                 | External host containing ssh-key)    |
+| Jump Box | Yes                 | External host containing ssh-priv-key|
 |Web1 &web2| no                  |  jumpbox(10.0.0.4)                   |
 |   elk    | no                  |  jumpbox(10.0.0.4)                   |
 
@@ -100,7 +100,8 @@ _TODO: Answer the following questions to fill in the blanks:_
 A)
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - _Which URL do you navigate to in order to check that the ELK server is running?
-A)52.151.193.28:5601 
+
+- _52.151.193.28:5601 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 =======
