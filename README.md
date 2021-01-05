@@ -47,8 +47,9 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the jump-box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-A)Any ip address that has access to the private ssh key will be allowed to ssh into jumpbox.
-Machines within the network can only be accessed by the Jump-box ansible container through ssh.
+
+- A)Any ip address that has access to the private ssh key will be allowed to ssh into jumpbox.
+VM Machines within the network can only be accessed by the Jump-box ansible container through ssh.
 
 -The ELK VM (10.1.0.5) can only be accessed by the Jump-box ansible container(10.0.0.5) which contains the ssh private key.
 
@@ -65,7 +66,7 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 
-- a)The main advantage of automating this process is to quickly reconfigure a machine. If multiple VMs was newly created or a previous VM had to be destroyed, we can simply run the playbook to reconfigure out machines. This saves us time rather than manually accessing each machine to install/configuring.
+- A) The main advantage of automating this process is to quickly reconfigure a machine. If multiple VMs was newly created or a previous VM had to be destroyed, we can simply run the playbook to reconfigure out machines. This saves us time rather than manually accessing each machine to install/configuring.
 
 The ELK playbook implements the following tasks:
 - Increases virtual memory for our ELK server to use.
@@ -94,14 +95,14 @@ SSH into the control node and follow the steps below:
 - Copy/download the "install-elk.yml", "filebeat-config.yml","filebeat-playbook" file onto your ansible container.
 - Edit the "hosts" file (/etc/ansible/hosts) to include our elk server/VMs for ansible to use playbooks on.
 ![hosts edit file](images/hosts_edit.png)
-- Run the "install-elk.yml" playbook (note that the remote_user inside the file has to be your ansible container with the ssh key to your elk server)
-- edit the "filebeat-config.yml" file to send the data to our ELK server.
+- Run the "install-elk.yml" playbook (note that the remote_user inside the file has to be the user created for ssh keys to your elk server)
+- edit the "filebeat-config.yml" file to send the data to our ELK server. (IP needs to be the ELK server)
 ![filebeat config edit](images/IP_change_filebeat_configP1.png)
 ![filebeat config edit](images/IP_change_filebeat_configP2.png)
 - run the "filebeat-playbook"
 
 
-- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 
 - A) You need to update the "hosts" file and add your webservers/elk ip addresses. This allows ansilbe to run playbooks on specific machines such as installing dvwa,filebeat or elk on the specified IP addresses from the hosts file. In the installation of filebeat,  you will have to modify the "filebeat-config.yml" file to point it to our elk server. During the installation process this file will be copied and renamed filebeat.yml to the machines we want to monitor.
 
