@@ -96,7 +96,8 @@ SSH into the control node and follow the steps below:
 - Edit the "hosts" file to include our elk server
 ![hosts edit file](images/hosts_edit.png)
 - edit the "filebeat-config.yml" file to send the data to our ELK server.
-![filebeat config edit](images/IP_change_filebeat_configP1.png)(images/IP_change_filebeat_configP2.png)
+![filebeat config edit](images/IP_change_filebeat_configP1.png)
+![filebeat config edit](images/IP_change_filebeat_configP2.png)
 
 - Copy the _____ file to _____.
 - Update the _____ file to include...
