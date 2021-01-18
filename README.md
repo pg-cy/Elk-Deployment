@@ -61,7 +61,7 @@ A summary of the access policies in place can be found in the table below.
 | Jump Box |Yes(168.62.194.182   | External host containing ssh-priv-key|
 |Web1 &web2| no                  |  jumpbox(10.0.0.4)                   |
 |   elk    | no                  |  jumpbox(10.0.0.4)                   |
-| Kibana   | yes (52.151.193.28) |                  			|
+| Kibana   | yes (52.151.193.28) |        any            		|
 
 ### Elk Configuration
 
