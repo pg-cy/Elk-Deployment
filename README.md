@@ -105,7 +105,7 @@ SSH into the control node and follow the steps below:
 
 Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 
-- A) You need to update the "hosts" file and add your webservers/elk ip addresses. This allows ansilbe to run playbooks on specific machines such as installing dvwa,filebeat or elk on the specified IP addresses from the hosts file. The playbooks reference the ansible hosts file, for example a line in our playbooks will look like---  hosts: elk   or    hosts: webservers. These lines will point to our ansible hosts file which will contain both of our dvwa IP's listed under [webservers] and our elk IP listed under [elk]
+- A) You need to update the "hosts" file and add your webservers/elk ip addresses. This allows ansilbe to run playbooks on specific machines such as installing dvwa, filebeat or elk on the specified IP addresses from the "hosts" file. The playbooks reference the ansible "hosts" file, for example a line in our playbooks will look like--- "hosts: elk" or "hosts: webservers". These lines will point to our ansible hosts file which will contain both of our dvwa IP's listed under [webservers] and our elk IP listed under [elk]
 
 Which URL do you navigate to in order to check that the ELK server is running?
 
