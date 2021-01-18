@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-
+![test image](ELK+network-diagram.jpg)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -113,5 +113,5 @@ Which URL do you navigate to in order to check that the ELK server is running?
 
 
  
-![test image](images/Peter_gentile_Homework_12.jpg)
+
 >>>>>>> 623af73961c880bfce855ab58a463673338ded55
