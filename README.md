@@ -21,10 +21,10 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
-Load balancing ensures redundancy, in addition to restricting access to the network.
-- Load balancers route requests from external hosts to webservers ensuring they are not being overloaded (which can cause them to crash or be inaccessable). 
+Load balancing ensures redundancy
+- Load balancers route requests from external hosts to webservers ensuring they are not being overloaded (which can cause them to crash or be inaccessable at times). 
 
-A jump-box is another layer of security. Users can gain access to the network only by SSH using RSA keys, from that machine one can move throughout the network.   
+A Jump-Box is another layer of security. Users can gain access to the network only by SSH to the Jump-Box using RSA keys, from that machine one can move laterally throughout the network.   
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the application and system logs.
 - Filebeat watches for changes to syslog and Authentication logs
@@ -43,13 +43,12 @@ The configuration details of each machine can be found below.
 
 ### Access Policies
 
-The machines on the internal network (except for the Jump-Box) are not exposed to the Wide Area Network. 
-
-Only the jump-box machine is exposed with a public facing IP and access to this machine is only allowed from external hosts containing the RSA private key using SSH.
+The machines on the internal network (except for the Jump-Box/Load balancer) are not exposed to the Wide Area Network.
+To gain access to the internal network, SSH (RSA keys) to the Jump-Box.
 
 - The Web-server machines within the network can only be accessed by the Jump-box ansible container through SSH RSA keys.
 
--The ELK VM (10.1.0.5) which is located on a seperate network can only be accessed by the Jump-box ansible container through SSH RSA keys.
+- The ELK VM (10.1.0.5) which is located on a seperate network can only be accessed by the Jump-box ansible container through SSH RSA keys.
 
 
 A summary of the access policies in place can be found in the table below.
@@ -57,9 +56,9 @@ A summary of the access policies in place can be found in the table below.
 | Name       | Publicly Accessible | Allowed IP Addresses                 |
 |------------|---------------------|--------------------------------------|
 | Jump Box   | Yes (168.62.194.182)| External host containing ssh-priv-key|
-|Web1 &web2  | no                  | jumpbox(10.0.0.4)                    |
-|LoadBalancer| yes(13.64.143.113   | All				  |	
-|   elk      | no                  | jumpbox(10.0.0.4)                    |
+|Web1 &web2  | no                  | jumpbox (10.0.0.4)                   |
+|LoadBalancer| yes (13.64.143.113) | All				  |	
+|   elk      | no                  | jumpbox (10.0.0.4)                   |
 
 
 ### Elk Configuration
@@ -105,5 +104,5 @@ SSH into the control node and follow the steps below:
 
 
 
-- To access Kibana, navigate to 52.151.193.28:5601 in a browser (IPv4:Port Kibana is using).
+- To access Kibana, navigate to 52.151.193.28:5601 in a browser (IP:Port Kibana is using).
 
