@@ -95,8 +95,8 @@ SSH into the control node and follow the steps below:
 - Copy/download the "install-elk.yml", "filebeat-config.yml", "filebeat-playbook" file onto your ansible container.
 - Edit the "hosts" file (/etc/ansible/hosts) to include our elk server/VMs for ansible to use playbooks on.
 ![hosts edit file](images/hosts_edit.png)
-- Run the "install-elk.yml" playbook (note!:the 'remote_user' inside that file has to be the user containing SSH keys to your elk server)
-- edit the "filebeat-config.yml" file to send the data to our ELK server. (IP needs to be the ELK server)
+- Run the "install-elk.yml" playbook (note!: the 'remote_user' inside that file has to be the user containing SSH keys to your elk server, in this case its our ansible container)
+- edit the "filebeat-config.yml" file to send the data to our ELK server. (IP needs to be the ELK server-Search for "setup.kibana" & "output.elasticsearch")
 ![filebeat config edit](images/IP_change_filebeat_configP1.png)
 ![filebeat config edit](images/IP_change_filebeat_configP2.png)
 - run the "filebeat-playbook"
@@ -104,5 +104,5 @@ SSH into the control node and follow the steps below:
 
 
 
-- To access Kibana, navigate to 52.151.193.28:5601 in a browser (IP:Port Kibana is using).
+- To access Kibana, navigate to 52.151.193.28:5601 in a browser (Whatever the IP:Port Kibana is using).
 
